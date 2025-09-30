@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://b3d3fmr2443ld"]
+
+[ext_resource type="Texture2D" uid="uid://c45q8w10lhpew" path="res://images/lightbrick.png" id="1_6pmjc"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_6pmjc"]
+distance = -256.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ttalb"]
+normal = Vector2(-1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_lptdg"]
+normal = Vector2(0, 1)
+distance = 64.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_7156t"]
+normal = Vector2(1, 0)
+
+[node name="Field" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.39957, 0.57, 0.3078, 1)
+position = Vector2(12, -7.99997)
+scale = Vector2(1000, 528)
+texture = ExtResource("1_6pmjc")
+
+[node name="Down" type="CollisionShape2D" parent="."]
+shape = SubResource("WorldBoundaryShape2D_6pmjc")
+
+[node name="Right" type="CollisionShape2D" parent="."]
+position = Vector2(512, 80)
+shape = SubResource("WorldBoundaryShape2D_ttalb")
+
+[node name="Up" type="CollisionShape2D" parent="."]
+position = Vector2(-8, -336)
+shape = SubResource("WorldBoundaryShape2D_lptdg")
+
+[node name="Left" type="CollisionShape2D" parent="."]
+position = Vector2(-488, -32)
+shape = SubResource("WorldBoundaryShape2D_7156t")
