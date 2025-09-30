@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://b3d3fmr2443ld"]
+[gd_scene load_steps=8 format=3 uid="uid://b3d3fmr2443ld"]
 
 [ext_resource type="Texture2D" uid="uid://c45q8w10lhpew" path="res://images/lightbrick.png" id="1_6pmjc"]
+[ext_resource type="Script" uid="uid://dpemmgceuf35y" path="res://coin_spawn.gd" id="1_ttalb"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_6pmjc"]
 distance = -256.0
@@ -15,7 +16,11 @@ distance = 64.0
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_7156t"]
 normal = Vector2(1, 0)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lptdg"]
+size = Vector2(936, 472)
+
 [node name="Field" type="StaticBody2D"]
+script = ExtResource("1_ttalb")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(0.39957, 0.57, 0.3078, 1)
@@ -37,3 +42,16 @@ shape = SubResource("WorldBoundaryShape2D_lptdg")
 [node name="Left" type="CollisionShape2D" parent="."]
 position = Vector2(-488, -32)
 shape = SubResource("WorldBoundaryShape2D_7156t")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[node name="SpawnArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SpawnArea"]
+position = Vector2(12, -4)
+shape = SubResource("RectangleShape2D_lptdg")
+
+[node name="Coins" type="Node" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
