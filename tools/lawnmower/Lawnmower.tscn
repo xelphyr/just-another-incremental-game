@@ -1,19 +1,32 @@
-[gd_scene load_steps=4 format=3 uid="uid://d2r5eir1buggw"]
+[gd_scene load_steps=6 format=3 uid="uid://d2r5eir1buggw"]
 
 [ext_resource type="Script" uid="uid://bqk53x5knt04c" path="res://lawnmower.gd" id="1_1evmc"]
 [ext_resource type="Texture2D" uid="uid://dto6mxgrmhq44" path="res://images/Lawnmower.png" id="1_xejlx"]
+[ext_resource type="Script" uid="uid://dwj0imoy32174" path="res://hitbox.gd" id="3_7l4ss"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1evmc"]
 radius = 25.0
-height = 96.0
+height = 84.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1evmc"]
+size = Vector2(9, 47)
 
 [node name="Lawnmower" type="AnimatableBody2D" groups=["Collector"]]
 script = ExtResource("1_1evmc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(3, 0)
+position = Vector2(-1, 0)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_1evmc")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_xejlx")
+
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("3_7l4ss")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(40.5, -0.5)
+shape = SubResource("RectangleShape2D_1evmc")
+
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
