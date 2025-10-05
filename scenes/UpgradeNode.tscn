@@ -56,21 +56,34 @@ offset_right = 35.0
 offset_bottom = 21.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 12
-text = "Add a Lawnmower"
+text = "Placeholder"
 
 [node name="Level" type="Label" parent="."]
 layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
+anchors_preset = 2
 anchor_top = 1.0
-anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -16.999996
+offset_left = 3.0
 offset_top = -24.999992
-offset_right = 18.000004
+offset_right = 38.0
 offset_bottom = -1.9999924
-grow_horizontal = 2
 grow_vertical = 0
-text = "(1/1)"
+text = "(x/x)"
+
+[node name="Cash" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -36.999992
+offset_top = -24.999992
+offset_right = -1.9999847
+offset_bottom = -1.9999924
+grow_horizontal = 0
+grow_vertical = 0
+text = "0"
+horizontal_alignment = 2
 
 [connection signal="button_up" from="." to="." method="_on_button_up"]

@@ -20,6 +20,7 @@ signal on_purchase(data : UpgradeNode)
 func _ready() -> void:
 	$Name.text = title
 	$Level.text = "(%d/%d)" % [current_level, max_level] 
+	$Cash.text = str(cost_at(current_level)) 
 
 func cost_at(level: int) -> float:
 	if cost_type == "exp":
@@ -31,7 +32,8 @@ func cost_at(level: int) -> float:
 func _on_button_up() -> void:
 	if current_level < max_level and GameHandler.purchase(cost_at(current_level)):
 		current_level += 1
-		$Level.text = "(%d/%d)" % [current_level, max_level] 
+		$Level.text = "(%d/%d)" % [current_level, max_level]
+		$Cash.text = str(cost_at(current_level)) 
 		emit_signal("on_purchase", self)
 		
 		

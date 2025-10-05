@@ -23,6 +23,12 @@ GameHandler="*res://game_handler.gd"
 
 enabled=PackedStringArray("res://addons/godot_super-wakatime/plugin.cfg")
 
+[global_group]
+
+Collector="Objects that can collect coins for the player"
+LawnmowerSpawner="Spawner of the Lawnmowers"
+CoinSpawner="Coin Spawner"
+
 [input]
 
 left={

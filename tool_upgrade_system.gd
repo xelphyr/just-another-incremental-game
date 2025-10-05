@@ -3,9 +3,6 @@ class_name ToolUpgradeSystem
 
 @export var nodes: Array[UpgradeNode] = []
 
-
-
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	_recalculate_upgrade_tree(null)
@@ -52,3 +49,7 @@ func _recalculate_upgrade_tree(data: UpgradeNode) -> void:
 	for node in nodes_to_unlock:
 		node.disabled = false
 		node.visible = true
+	send_upgrades(data)
+
+func send_upgrades(data: UpgradeNode) -> void:
+	pass

@@ -1,5 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://2ssxgm6aj5fj"]
+[gd_scene load_steps=4 format=3 uid="uid://2ssxgm6aj5fj"]
 
+[ext_resource type="Script" uid="uid://cvfj35d6pycgy" path="res://lawnmower_upgrade_system.gd" id="1_0kemt"]
 [ext_resource type="PackedScene" uid="uid://beq1ttb4x6oob" path="res://scenes/UpgradeNode.tscn" id="1_ombev"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_utfbk"]
@@ -9,11 +10,13 @@ corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
 
-[node name="LawnmowerUpgrade" type="VBoxContainer"]
+[node name="LawnmowerUpgrade" type="VSplitContainer" node_paths=PackedStringArray("nodes")]
 offset_right = 317.0
 offset_bottom = 648.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_0kemt")
+nodes = [NodePath("Tree/UpgradeNode"), NodePath("Tree/UpgradeNode2"), NodePath("Tree/UpgradeNode3")]
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 2
@@ -27,6 +30,7 @@ size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_utfbk")
 
 [node name="UpgradeNode" parent="Tree" instance=ExtResource("1_ombev")]
+z_index = 1
 layout_mode = 1
 anchor_left = 0.5
 anchor_right = 0.5
@@ -38,10 +42,11 @@ offset_bottom = 95.5
 grow_horizontal = 2
 grow_vertical = 2
 title = "Add a Lawnmower"
-max_level = 3
+max_level = 4
 base_cost = 10.0
 
 [node name="UpgradeNode2" parent="Tree" instance=ExtResource("1_ombev")]
+z_index = 1
 layout_mode = 1
 anchor_left = 0.5
 anchor_right = 0.5
@@ -54,6 +59,7 @@ grow_horizontal = 2
 grow_vertical = 2
 id = 1
 title = "Make it faster"
+max_level = 5
 base_cost = 100.0
 reveal_when = {
 0: 1
@@ -62,7 +68,20 @@ unlock_when = {
 0: 2
 }
 
+[node name="ColorRect" type="ColorRect" parent="Tree/UpgradeNode2"]
+z_index = -1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -1.0
+offset_top = -44.5
+offset_right = 1.0
+offset_bottom = 8.5
+grow_horizontal = 2
+
 [node name="UpgradeNode3" parent="Tree" instance=ExtResource("1_ombev")]
+z_index = 1
 layout_mode = 1
 anchor_left = 0.5
 anchor_right = 0.5
@@ -73,7 +92,9 @@ offset_right = 74.5
 offset_bottom = 272.5
 grow_horizontal = 2
 grow_vertical = 2
-title = "Make it vroom"
+id = 2
+title = "Make spawn faster"
+max_level = 6
 base_cost = 20.0
 reveal_when = {
 1: 1
@@ -81,6 +102,18 @@ reveal_when = {
 unlock_when = {
 1: 2
 }
+
+[node name="ColorRect2" type="ColorRect" parent="Tree/UpgradeNode3"]
+z_index = -1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -1.0
+offset_top = -50.5
+offset_right = 1.0
+offset_bottom = 2.5
+grow_horizontal = 2
 
 [connection signal="on_purchase" from="Tree/UpgradeNode" to="." method="_recalculate_upgrade_tree"]
 [connection signal="on_purchase" from="Tree/UpgradeNode2" to="." method="_recalculate_upgrade_tree"]

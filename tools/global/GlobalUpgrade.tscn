@@ -1,0 +1,107 @@
+[gd_scene load_steps=4 format=3 uid="uid://cv8xuc1dkwncd"]
+
+[ext_resource type="Script" uid="uid://1cics4j1sdn0" path="res://global_upgrade_system.gd" id="1_1fhnq"]
+[ext_resource type="PackedScene" uid="uid://beq1ttb4x6oob" path="res://scenes/UpgradeNode.tscn" id="2_k8gnq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_utfbk"]
+bg_color = Color(0.147672, 0.147672, 0.147672, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.9117189, 0.80342776, 0, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[node name="GlobalUpgrade" type="VSplitContainer" node_paths=PackedStringArray("nodes")]
+custom_minimum_size = Vector2(666, 0)
+offset_right = 666.0
+offset_bottom = 648.0
+script = ExtResource("1_1fhnq")
+nodes = [NodePath("Tree/UpgradeNode"), NodePath("Tree/UpgradeNode2"), NodePath("Tree/UpgradeNode3")]
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+size_flags_vertical = 0
+text = "Global"
+horizontal_alignment = 1
+
+[node name="Tree" type="Panel" parent="."]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_utfbk")
+
+[node name="UpgradeNode" parent="Tree" instance=ExtResource("2_k8gnq")]
+z_index = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.0
+offset_left = -307.0
+offset_top = 58.0
+offset_right = -169.0
+offset_bottom = 103.0
+grow_horizontal = 2
+id = 10
+title = "Increase Coin Spawn Rate"
+max_level = 4
+base_cost = 10.0
+
+[node name="UpgradeNode2" parent="Tree" instance=ExtResource("2_k8gnq")]
+z_index = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.0
+offset_left = -138.0
+offset_top = 59.0
+offset_right = 0.0
+offset_bottom = 104.0
+grow_horizontal = 2
+id = 20
+title = "Increase Coin Value"
+max_level = 5
+base_cost = 100.0
+
+[node name="UpgradeNode3" parent="Tree" instance=ExtResource("2_k8gnq")]
+z_index = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.0
+offset_left = 21.0
+offset_top = 60.0
+offset_right = 159.0
+offset_bottom = 105.0
+grow_horizontal = 2
+id = 30
+title = "Increase Special Coin Chance"
+max_level = 4
+base_cost = 20.0
+
+[node name="UpgradeNode4" parent="Tree" instance=ExtResource("2_k8gnq")]
+z_index = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.0
+offset_left = 175.0
+offset_top = 59.0
+offset_right = 313.0
+offset_bottom = 104.0
+grow_horizontal = 2
+id = 40
+title = "Increase Max Coins"
+max_level = 5
+base_cost = 20.0
+
+[connection signal="on_purchase" from="Tree/UpgradeNode" to="." method="_recalculate_upgrade_tree"]
+[connection signal="on_purchase" from="Tree/UpgradeNode2" to="." method="_recalculate_upgrade_tree"]
+[connection signal="on_purchase" from="Tree/UpgradeNode3" to="." method="_recalculate_upgrade_tree"]
+[connection signal="on_purchase" from="Tree/UpgradeNode4" to="." method="_recalculate_upgrade_tree"]

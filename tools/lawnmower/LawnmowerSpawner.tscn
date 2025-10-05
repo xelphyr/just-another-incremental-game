@@ -1,3 +1,29 @@
-[gd_scene format=3 uid="uid://bo1yy3ahrq16v"]
+[gd_scene load_steps=2 format=3 uid="uid://bo1yy3ahrq16v"]
 
-[node name="LawnmowerSpawner" type="Node2D"]
+[ext_resource type="Script" uid="uid://bjfytp6oo2orw" path="res://lawnmower_spawner.gd" id="1_eun7h"]
+
+[node name="LawnmowerSpawner" type="Node2D" node_paths=PackedStringArray("spawnpoints") groups=["LawnmowerSpawner"]]
+script = ExtResource("1_eun7h")
+spawnpoints = [NodePath("SpawnPoint1"), NodePath("SpawnPoint2"), NodePath("SpawnPoint3"), NodePath("SpawnPoint4"), NodePath("SpawnPoint5")]
+
+[node name="SpawnPoint1" type="Node2D" parent="."]
+position = Vector2(14, 104)
+
+[node name="SpawnPoint2" type="Node2D" parent="."]
+position = Vector2(12, 196)
+
+[node name="SpawnPoint3" type="Node2D" parent="."]
+position = Vector2(10, 298)
+
+[node name="SpawnPoint4" type="Node2D" parent="."]
+position = Vector2(9, 396)
+
+[node name="SpawnPoint5" type="Node2D" parent="."]
+position = Vector2(13, 523)
+
+[node name="SpawnTimer" type="Timer" parent="."]
+autostart = true
+
+[node name="Lawnmowers" type="Node" parent="."]
+
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]

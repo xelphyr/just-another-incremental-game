@@ -1,6 +1,6 @@
 extends Node
 
-var coins = 100000
+var coins = 0
 var tools = []
 
 signal coins_update(amt)
