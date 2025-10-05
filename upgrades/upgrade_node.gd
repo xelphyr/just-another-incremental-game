@@ -29,7 +29,7 @@ func cost_at(level: int) -> float:
 	return base_cost
 
 func _on_button_up() -> void:
-	if GameHandler.purchase(cost_at(current_level)):
+	if current_level < max_level and GameHandler.purchase(cost_at(current_level)):
 		current_level += 1
 		$Level.text = "(%d/%d)" % [current_level, max_level] 
 		emit_signal("on_purchase", self)

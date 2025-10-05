@@ -1,0 +1,40 @@
+[gd_scene load_steps=4 format=3 uid="uid://cp00mjrqlt1hc"]
+
+[ext_resource type="PackedScene" uid="uid://2ssxgm6aj5fj" path="res://tools/lawnmower/LawnmowerUpgrade.tscn" id="1_cyl6b"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_phyfm"]
+bg_color = Color(0.24477652, 0.24477637, 0.24477637, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="Theme" id="Theme_37eju"]
+
+[node name="ToolMenu" type="Panel"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_phyfm")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_right = 1149.0
+offset_bottom = 646.0
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme = SubResource("Theme_37eju")
+
+[node name="LawnmowerUpgrade" parent="MarginContainer/HBoxContainer" instance=ExtResource("1_cyl6b")]
+custom_minimum_size = Vector2(250, 100)
+layout_mode = 2
+size_flags_horizontal = 2
