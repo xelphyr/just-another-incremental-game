@@ -12,12 +12,16 @@ config_version=5
 
 config/name="Just Another Incremental Game"
 run/main_scene="uid://blxdey8reg28s"
-config/features=PackedStringArray("4.4", "GL Compatibility")
+config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [autoload]
 
 GameHandler="*res://game_handler.gd"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/godot_super-wakatime/plugin.cfg")
 
 [input]
 

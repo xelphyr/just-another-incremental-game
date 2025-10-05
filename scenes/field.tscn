@@ -24,29 +24,31 @@ script = ExtResource("1_ttalb")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(0.39957, 0.57, 0.3078, 1)
-position = Vector2(12, -7.99997)
+position = Vector2(580, 328)
 scale = Vector2(1000, 528)
 texture = ExtResource("1_6pmjc")
 
 [node name="Down" type="CollisionShape2D" parent="."]
+position = Vector2(568, 336)
 shape = SubResource("WorldBoundaryShape2D_6pmjc")
 
 [node name="Right" type="CollisionShape2D" parent="."]
-position = Vector2(512, 80)
+position = Vector2(1080, 416)
 shape = SubResource("WorldBoundaryShape2D_ttalb")
 
 [node name="Up" type="CollisionShape2D" parent="."]
-position = Vector2(-8, -336)
+position = Vector2(560, 0)
 shape = SubResource("WorldBoundaryShape2D_lptdg")
 
 [node name="Left" type="CollisionShape2D" parent="."]
-position = Vector2(-488, -32)
+position = Vector2(80, 304)
 shape = SubResource("WorldBoundaryShape2D_7156t")
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true
 
 [node name="SpawnArea" type="Area2D" parent="."]
+position = Vector2(568, 336)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SpawnArea"]
 position = Vector2(12, -4)

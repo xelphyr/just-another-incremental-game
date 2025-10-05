@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="UpgradeNode" load_steps=2 format=3 uid="uid://cetnll2n23gnp"]
+
+[ext_resource type="Script" uid="uid://b8a5wep1stqd1" path="res://upgrades/upgrade_node.gd" id="1_5g0nv"]
+
+[resource]
+script = ExtResource("1_5g0nv")
+id = 1
+name = "Add more lawnmovers"
+repeatable = true
+max_level = 5
+cost_type = "mult"
+base_cost = 250.0
+mult = 1.3
+power = 2.0
+tool_id = 0
+requires = [null]
+reveal_when = Array[Dictionary]([])
+unlock_when = Array[Dictionary]([])
