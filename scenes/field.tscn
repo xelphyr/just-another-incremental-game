@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://b3d3fmr2443ld"]
+[gd_scene load_steps=9 format=3 uid="uid://b3d3fmr2443ld"]
 
-[ext_resource type="Texture2D" uid="uid://c45q8w10lhpew" path="res://images/lightbrick.png" id="1_6pmjc"]
+[ext_resource type="Texture2D" uid="uid://dn7b4wxoxoyax" path="res://images/groundery.png" id="2_lptdg"]
+[ext_resource type="Texture2D" uid="uid://bwgm8njumuba3" path="res://images/grassery.png" id="3_7156t"]
 [ext_resource type="Script" uid="uid://c6ls7ofewli3t" path="res://out_of_bounds.gd" id="3_lptdg"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_6pmjc"]
@@ -21,12 +22,6 @@ normal = Vector2(1, 0)
 distance = -624.0
 
 [node name="Field" type="StaticBody2D"]
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(0.39957, 0.57, 0.3078, 1)
-position = Vector2(580, 328)
-scale = Vector2(1000, 528)
-texture = ExtResource("1_6pmjc")
 
 [node name="Down" type="CollisionShape2D" parent="."]
 position = Vector2(568, 336)
@@ -67,6 +62,22 @@ shape = SubResource("WorldBoundaryShape2D_pn4dk")
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="Area2D"]
 rotation = 4.712389
 shape = SubResource("WorldBoundaryShape2D_pn4dk")
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+z_index = -10
+offset_right = 1432.0
+offset_bottom = 832.0
+texture = ExtResource("2_lptdg")
+stretch_mode = 1
+
+[node name="TextureRect" type="TextureRect" parent="."]
+z_index = -8
+offset_left = 80.0
+offset_top = 64.0
+offset_right = 1080.0
+offset_bottom = 592.0
+texture = ExtResource("3_7156t")
+stretch_mode = 1
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]

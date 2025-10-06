@@ -9,6 +9,7 @@ var spawn_rect
 func on_update(stats: Dictionary) -> void:
 	$Timer.wait_time = 1/stats.coinSpawnRate
 	max_coins = stats.maxCoins
+	print(coin_value)
 	coin_value = stats.coinValue
 
 func _ready() -> void:

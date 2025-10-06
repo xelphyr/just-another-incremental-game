@@ -2,7 +2,7 @@ extends Node
 class_name Health
 
 @export var max_health := 5
-@export var healing_factor:= 0.5
+@export var healing_factor:= 0.1
 @onready var health = max_health
 var game_over = preload("res://scenes/GameOver.tscn")
 

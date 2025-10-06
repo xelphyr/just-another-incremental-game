@@ -36,22 +36,24 @@ visible = false
 
 [node name="Button" type="Button" parent="CanvasLayer"]
 z_index = 1
-anchors_preset = 15
+anchors_preset = 1
+anchor_left = 1.0
 anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 1025.0
+offset_left = -127.0
 offset_top = 12.0
 offset_right = -18.0
-offset_bottom = -612.0
-grow_horizontal = 2
-grow_vertical = 2
+offset_bottom = 36.0
+grow_horizontal = 0
 toggle_mode = true
 text = "Open Menu"
 script = ExtResource("5_tefeu")
 
 [node name="HealthUI" parent="CanvasLayer" instance=ExtResource("7_choun")]
-offset_top = 603.0
-offset_right = -758.0
+z_index = -15
+offset_left = 23.0
+offset_top = -47.0
+offset_right = 341.0
+offset_bottom = -11.0
 
 [node name="Tools" type="Node" parent="."]
 

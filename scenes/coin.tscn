@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://co22h52ppyky3"]
 
 [ext_resource type="Script" uid="uid://ds4hhbk23pw2m" path="res://coin.gd" id="1_i64fm"]
-[ext_resource type="Texture2D" uid="uid://hrqqed3rqh6a" path="res://images/coin_placeholder.png" id="1_rwqht"]
+[ext_resource type="Texture2D" uid="uid://b3s40offbk5hv" path="res://images/coinage.png" id="2_i64fm"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rwqht"]
 radius = 16.0
@@ -10,8 +10,7 @@ radius = 16.0
 script = ExtResource("1_i64fm")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.05, 0.05)
-texture = ExtResource("1_rwqht")
+texture = ExtResource("2_i64fm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_rwqht")
